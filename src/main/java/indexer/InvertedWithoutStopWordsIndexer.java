@@ -25,7 +25,8 @@ public class InvertedWithoutStopWordsIndexer extends Indexer {
     public void index() {
         final Path docDir = Paths.get(this.docsPath);
         if (!Files.isReadable(docDir)) {
-            System.out.println("Document directory '" + docDir.toAbsolutePath() + "' does not exist or is not readable, please check the path");
+            System.out.println("Document directory '" + docDir.toAbsolutePath() + "' does not exist or is not readable," +
+                    " please check the path");
             System.exit(1);
         }
 

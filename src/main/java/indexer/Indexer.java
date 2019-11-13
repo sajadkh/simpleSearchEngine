@@ -54,6 +54,8 @@ public abstract class Indexer {
 
             doc.add(new LongPoint("modified", lastModified));
 
+            doc.add(new TextField("title", file.getFileName().toString(), Field.Store.YES));
+
             doc.add(new TextField("contents", new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))));
 
             if (writer.getConfig().getOpenMode() == IndexWriterConfig.OpenMode.CREATE) {
@@ -65,5 +67,4 @@ public abstract class Indexer {
             }
         }
     }
-
 }
